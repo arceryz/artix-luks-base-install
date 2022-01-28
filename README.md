@@ -42,7 +42,7 @@ Connected
 > exit
 ```
 
-You can download this script straight from [https://red8clover.xyz](red8clover.xyz) like so:
+You can download this script straight from [red8clover.xyz](https://red8clover.xyz) like so:
 ```console
 curl -LO red8clover.xyz/artix-luks-base-install
 ```
