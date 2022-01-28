@@ -2,6 +2,8 @@
 # ++-- Artix Linux Minimal Encrypted Install Script --++
 
 # Proper usage checks.
+[ -z "$1" ] && echo "Usage: 
+artix-luks-base-install dev/sdX encrypt3dpassw0rd" && exit
 [ -z "$(ls /sys/firmware/efi/efivars)" ] && echo "EFI only installation; Please boot with EFI." && exit
 [ $(id -u) != 0 ] && echo "Root privileges required." && exit
 [ -z "$(connmanctl state | grep -e online -e ready)" ] && \
@@ -44,7 +46,7 @@ echo -ne "$cryptpass" | cryptsetup open ${targetdisk}2 cryptlvm -d -
 pvcreate /dev/mapper/cryptlvm
 vgcreate $cvg /dev/mapper/cryptlvm
 lvcreate -L 12G $cvg -n swap
-lvcreate -L 32G $cvg -n root
+lvcreate -L 50G $cvg -n root
 lvcreate -l 100%FREE $cvg -n home
 
 # Make filesystems.

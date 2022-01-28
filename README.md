@@ -1,11 +1,15 @@
 # artix-luks-base-install
 
 Features:
-- LUKS encrypted drive.
-- From artix runit base ISO.
-- Sudoers setup.
-- Networkmanager setup.
-- Bare minimum for bootable system.
+- LVM on LUKS encrypted drive (see below Arch Linux article).
+- Artix runit init system only (can be changed).
+- Partitioning: 12g swap, 50g root, leftover to home. 512MB boot. (can be changed).
+- UEFI only (can be changed).
+- Allow wheel group in sudoers with root password only.
+- Set locale and other essential defaults.
+- Networkmanager setup and linking.
+- Bare minimum for bootable system. Make personal after installing base.
+- Log in with root password '123'.
 - Small and well documented script. No bloat.
 
 Artix Linux LUKS encrypted minimal automated installation script. Download &amp; Run.
@@ -38,7 +42,7 @@ Connected
 > exit
 ```
 
-You can download this script straight from [red8clover.xyz](red8clover.xyz) like so:
+You can download this script straight from [https://red8clover.xyz](red8clover.xyz) like so:
 ```console
 curl -LO red8clover.xyz/artix-luks-base-install
 ```
