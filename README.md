@@ -83,3 +83,6 @@ The script follows the following install steps:
 1. Set default timezone to Europe and sync hwclock.
 1. Perform cleanups.
 1. Inform user :)
+
+If you have suggestions on improving the script, or need help with the
+installation. Feel free to contribute/open issues.
