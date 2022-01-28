@@ -82,3 +82,4 @@ The script follows the following install steps:
 1. Generate and set default locale to en_US.UTF-8.
 1. Set default timezone to Europe and sync hwclock.
 1. Perform cleanups.
+1. Inform user :)
