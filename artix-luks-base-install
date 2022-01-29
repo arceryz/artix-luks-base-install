@@ -84,7 +84,7 @@ artix-chroot /mnt sh -c 'grub-install --target=x86_64-efi --efi-directory=/boot 
 # Set root password and sudoers.
 artix-chroot /mnt sh -c 'echo root:123 | chpasswd'
 sed -s 's/# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL \
-Defaults rootpw/g' -i /mnt/etc/sudoers
+Defaults rootpw,pwfeedback/g' -i /mnt/etc/sudoers
 
 # Set hosts and link NetworkManager.
 echo "4rt1x" > /mnt/etc/hostname

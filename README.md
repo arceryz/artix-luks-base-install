@@ -5,7 +5,7 @@ Features:
 - Artix runit init system only (can be changed).
 - Partitioning: 12g swap, 50g root, leftover to home. 512MB boot. (can be changed).
 - UEFI only (can be changed).
-- Allow wheel group in sudoers with root password only.
+- Sudo allow wheel group with root pw only and has pwfeedback (asteriks while typing).
 - Set locale and other essential defaults.
 - Networkmanager setup and linking.
 - Bare minimum for bootable system. Make personal after installing base.
@@ -75,7 +75,7 @@ The script follows the following install steps:
 1. Basestrap system and generate fstab.
 1. Modify grub cfg and install grub with UEFI.
 1. Set root password to 123.
-1. Modify sudoers to allow 'wheel' group sudo access with root password only.
+1. Modify sudoers to allow 'wheel' group sudo access with root password only and set pwfeedback.
 1. Set hostname (default 4rt1x).
 1. Create /etc/hosts file.
 1. Link NetworkManager service to runsvdir.
