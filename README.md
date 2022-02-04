@@ -1,28 +1,43 @@
 # artix-luks-base-install
 
+A fully self-contained Artix Linux base installation script that installs the
+base system with an encrypted disk on /root /home and /swap using cryptsetup.
+The script is fully automated with no interaction from start to finish.
+Parameters are given as command line arguments.
+
+The installer is only configured to work with EFI systems and installs the runit
+init system by default. By default it allocates 12G for /swap, 50G for /root and
+everything else for /home. This should be sufficient for most configurations.
+
 Features:
-- LVM on LUKS encrypted drive (see below Arch Linux article).
-- Artix runit init system only (can be changed).
-- Partitioning: 12g swap, 50g root, leftover to home. 512MB boot. (can be changed).
-- UEFI only (can be changed).
-- Sudo allow wheel group with root pw only and has pwfeedback (asteriks while typing).
-- Set locale and other essential defaults.
-- Networkmanager setup and linking.
-- Bare minimum for bootable system. Make personal after installing base.
-- Log in with root password '123'.
-- Small and well documented script. No bloat.
+- EFI only.
+- Encrypted /root /home and /swap using LVM on LUKS encryption technique.
+- Runit init system (replaces systemd).
+- Configures defaults for locale, sudoers and networking.
+- Small and well documented script, no bloat.
 
-Artix Linux LUKS encrypted minimal automated installation script. Download &amp; Run.
-This script will install a bare minimal encrypted artix installation from the base
-iso. The script loosely follows the following articles. UEFI only, though
-you can modify the script to your own needs.
-
+The following articles we're used for reference:
 - [https://wiki.artixlinux.org/Main/Installation](https://wiki.artixlinux.org/Main/Installation)
 - [https://wiki.artixlinux.org/Main/InstallationWithFullDiskEncryption](https://wiki.artixlinux.org/Main/InstallationWithFullDiskEncryption)
 - [https://wiki.archlinux.org/title/installation_guide](https://wiki.archlinux.org/title/installation_guide)
+- [https://wiki.archlinux.org/title/Dm-crypt/Encrypting_an_entire_system#LVM_on_LUKS](https://wiki.archlinux.org/title/Dm-crypt/Encrypting_an_entire_system#LVM_on_LUKS)
 
-It implements the dm-crypt encryption technique from this Arch Wiki article: [https://wiki.archlinux.org/title/Dm-crypt/Encrypting_an_entire_system#LVM_on_LUKS](https://wiki.archlinux.org/title/Dm-crypt/Encrypting_an_entire_system#LVM_on_LUKS)
 
+# Download.
+You can download this script straight from [red8clover.xyz](https://red8clover.xyz) like so:
+```console
+curl -LO red8clover.xyz/artix-luks-base-install
+```
+
+
+# Usage.
+Help is echoed by the script.
+```console
+$ ./artix-luks-base-install /dev/sdX [PASSWORD]
+```
+
+
+# Wifi Setup With Connmanctl.
 To use this script, make sure you are connected to the internet. You can connect
 to the internet either through ethernet or with connmanctl:
 ```console
@@ -42,20 +57,6 @@ Connected
 > exit
 ```
 
-You can download this script straight from [red8clover.xyz](https://red8clover.xyz) like so:
-```console
-curl -LO red8clover.xyz/artix-luks-base-install
-```
-
-Then you can proceed with the installation by running the script. The script
-takes two parameters, first the disk to wipe & install on and second the
-password for the encrypted disk.
-
-```console
-chmod +x artix-luks-base-install
-sudo su
-./artix-luks-base-install /dev/sda myencrypt3dpassw0rd
-```
 
 # Install Summary.
 The script follows the following install steps:
