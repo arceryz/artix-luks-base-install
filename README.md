@@ -33,7 +33,7 @@ curl -LO red8clover.xyz/artix-luks-base-install
 # Usage.
 Help is echoed by the script.
 ```console
-$ ./artix-luks-base-install /dev/sdX [PASSWORD]
+$ ./artix-luks-base-install /dev/sdX [ENCRYPTION-PASSWORD]
 ```
 
 
