@@ -24,17 +24,18 @@ The following articles we're used for reference:
 
 
 # Download.
-You can download this script straight from [red8clover.xyz](https://red8clover.xyz) like so:
+You can download this script from github with the following command.
 ```console
-curl -LO red8clover.xyz/artix-luks-base-install
+curl -LO https://raw.githubusercontent.com/swordstrike1/artix-luks-base-install/master/artix-luks-base-install
 ```
 
 
 # Usage.
 Help is echoed by the script.
 ```console
-$ ./artix-luks-base-install /dev/sdX [ENCRYPTION-PASSWORD]
+$ ./artix-luks-base-install /dev/deviceX [ENCRYPTION-PASSWORD]
 ```
+Replace /dev/deviceX with the device of your choice (usually /dev/sda).
 
 
 # Wifi Setup With Connmanctl.
@@ -76,7 +77,7 @@ The script follows the following install steps:
 1. Basestrap system and generate fstab.
 1. Modify grub cfg and install grub with UEFI.
 1. Set root password to 123.
-1. Modify sudoers to allow 'wheel' group sudo access with root password only and set pwfeedback.
+1. Modify sudoers to allow 'wheel' group sudo access and set pwfeedback.
 1. Set hostname (default 4rt1x).
 1. Create /etc/hosts file.
 1. Link NetworkManager service to runsvdir.
