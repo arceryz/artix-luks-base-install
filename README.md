@@ -26,7 +26,7 @@ The following articles we're used for reference:
 # Download.
 You can download this script straight from [red8clover.xyz](https://red8clover.xyz) like so:
 ```console
-curl -LO red8clover.xyz/artix-luks-base-install
+curl -LO https://raw.githubusercontent.com/swordstrike1/artix-luks-base-install/master/artix-luks-base-install
 ```
 
 
